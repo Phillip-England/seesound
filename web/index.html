@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SeeSound</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="stage">
+        <canvas id="visualizer" aria-label="Music video visualizer preview"></canvas>
+        <div class="hud">
+          <div>
+            <span id="trackName">No song loaded</span>
+            <strong id="timeReadout">00:00 / 00:00</strong>
+          </div>
+          <div class="meter" aria-hidden="true">
+            <span id="levelMeter"></span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Visualizer controls">
+        <div class="brand">
+          <h1>SeeSound</h1>
+          <p>Seeded live music-video visualizer</p>
+        </div>
+
+        <label class="file-drop" for="songInput">
+          <input id="songInput" type="file" accept="audio/*">
+          <span>Load Song</span>
+          <small>MP3, WAV, M4A, OGG</small>
+        </label>
+
+        <div class="transport">
+          <button id="playButton" type="button" disabled>Play</button>
+          <button id="stopButton" type="button" disabled>Stop</button>
+          <button id="exportButton" type="button" disabled>Export WebM</button>
+          <a id="downloadLink" class="download-link" hidden download="seesound-video.webm">Download Video</a>
+        </div>
+
+        <label class="field">
+          <span>Seed</span>
+          <div class="seed-row">
+            <input id="seedInput" type="text" value="aurora-808">
+            <button id="randomSeed" type="button" aria-label="Random seed">Shuffle</button>
+          </div>
+        </label>
+
+        <div class="control-grid">
+          <label class="field">
+            <span>Scene</span>
+            <select id="sceneSelect">
+              <option value="nebula">Nebula</option>
+              <option value="tunnel">Tunnel</option>
+              <option value="radar">Radar</option>
+              <option value="crystal">Crystal</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Palette</span>
+            <select id="paletteSelect">
+              <option value="prism">Prism</option>
+              <option value="ember">Ember</option>
+              <option value="glacier">Glacier</option>
+              <option value="acid">Acid</option>
+              <option value="mono">Mono</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="knobs">
+          <label class="knob">
+            <span>Energy</span>
+            <input id="energy" type="range" min="0" max="100" value="68">
+            <output>68</output>
+          </label>
+          <label class="knob">
+            <span>Bloom</span>
+            <input id="bloom" type="range" min="0" max="100" value="58">
+            <output>58</output>
+          </label>
+          <label class="knob">
+            <span>Center</span>
+            <input id="center" type="range" min="0" max="100" value="46">
+            <output>46</output>
+          </label>
+          <label class="knob">
+            <span>Color</span>
+            <input id="color" type="range" min="0" max="140" value="100">
+            <output>100</output>
+          </label>
+          <label class="knob">
+            <span>Saturate</span>
+            <input id="saturation" type="range" min="0" max="160" value="100">
+            <output>100</output>
+          </label>
+          <label class="knob">
+            <span>Warp</span>
+            <input id="warp" type="range" min="0" max="100" value="42">
+            <output>42</output>
+          </label>
+          <label class="knob">
+            <span>Bars</span>
+            <input id="bars" type="range" min="16" max="192" value="96">
+            <output>96</output>
+          </label>
+          <label class="knob">
+            <span>Motion</span>
+            <input id="motion" type="range" min="0" max="100" value="54">
+            <output>54</output>
+          </label>
+          <label class="knob">
+            <span>Grain</span>
+            <input id="grain" type="range" min="0" max="100" value="20">
+            <output>20</output>
+          </label>
+        </div>
+
+        <div class="toggles">
+          <label><input id="mirror" type="checkbox" checked> Mirror</label>
+          <label><input id="trails" type="checkbox" checked> Trails</label>
+          <label><input id="beatFlash" type="checkbox" checked> Beat flash</label>
+        </div>
+      </aside>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
