@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -38,6 +42,24 @@ select {
   overflow: hidden;
 }
 
+.stage::after {
+  position: absolute;
+  inset: 18px;
+  z-index: 3;
+  border: 1px dashed rgba(12, 242, 255, 0);
+  border-radius: 8px;
+  content: "";
+  pointer-events: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.stage.is-dragging::after {
+  border-color: rgba(12, 242, 255, 0.85);
+  background: rgba(12, 242, 255, 0.08);
+}
+
 #visualizer {
   display: block;
   width: 100%;
@@ -45,8 +67,16 @@ select {
   background: #030508;
 }
 
+.overlay-preview {
+  position: absolute;
+  z-index: 1;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 .hud {
   position: absolute;
+  z-index: 2;
   left: 20px;
   right: 20px;
   bottom: 18px;
@@ -132,6 +162,11 @@ select {
   border-color: rgba(12, 242, 255, 0.8);
 }
 
+.file-drop.is-dragging {
+  border-color: rgba(12, 242, 255, 0.95);
+  background: rgba(12, 242, 255, 0.1);
+}
+
 .file-drop input {
   position: absolute;
   inline-size: 1px;
@@ -145,6 +180,10 @@ select {
 
 .file-drop small {
   color: rgba(244, 247, 251, 0.58);
+}
+
+.file-drop.compact {
+  min-height: 78px;
 }
 
 .transport,
@@ -195,6 +234,19 @@ select {
 
 .seed-row {
   grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.remix-button {
+  min-height: 48px;
+  border-color: rgba(255, 255, 255, 0.22);
+  background:
+    linear-gradient(135deg, rgba(12, 242, 255, 0.18), rgba(255, 43, 214, 0.18)),
+    #151d28;
+}
+
+.overlay-controls {
+  display: grid;
+  gap: 14px;
 }
 
 .field,

@@ -10,6 +10,7 @@
     <main class="app">
       <section class="stage">
         <canvas id="visualizer" aria-label="Music video visualizer preview"></canvas>
+        <img id="overlayPreview" class="overlay-preview" alt="" hidden>
         <div class="hud">
           <div>
             <span id="trackName">No song loaded</span>
@@ -27,16 +28,16 @@
           <p>Seeded live music-video visualizer</p>
         </div>
 
-        <label class="file-drop" for="songInput">
+        <label id="songDrop" class="file-drop" for="songInput">
           <input id="songInput" type="file" accept="audio/*">
           <span>Load Song</span>
-          <small>MP3, WAV, M4A, OGG</small>
+          <small>Drop audio here or browse</small>
         </label>
 
         <div class="transport">
           <button id="playButton" type="button" disabled>Play</button>
           <button id="stopButton" type="button" disabled>Stop</button>
-          <button id="exportButton" type="button" disabled>Export WebM</button>
+          <button id="exportButton" type="button" disabled>Export Video</button>
           <a id="downloadLink" class="download-link" hidden download="seesound-video.webm">Download Video</a>
         </div>
 
@@ -48,14 +49,59 @@
           </div>
         </label>
 
+        <button id="remixButton" class="remix-button" type="button">Remix Look</button>
+
+        <section class="overlay-controls" aria-label="Image overlay controls">
+          <label class="file-drop compact" for="overlayInput">
+            <input id="overlayInput" type="file" accept="image/*">
+            <span>Overlay Image</span>
+            <small>PNG, JPG, SVG, WebP</small>
+          </label>
+
+          <div class="control-grid">
+            <label class="field">
+              <span>Position</span>
+              <select id="overlayPosition">
+                <option value="top-left">Top Left</option>
+                <option value="top-right" selected>Top Right</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="bottom-right">Bottom Right</option>
+                <option value="center">Center</option>
+              </select>
+            </label>
+
+            <button id="clearOverlay" type="button" disabled>Clear Overlay</button>
+          </div>
+
+          <label class="knob">
+            <span>Logo Size</span>
+            <input id="overlaySize" type="range" min="6" max="50" value="18">
+            <output>18</output>
+          </label>
+
+          <label class="knob">
+            <span>Opacity</span>
+            <input id="overlayOpacity" type="range" min="0" max="100" value="90">
+            <output>90</output>
+          </label>
+
+          <label class="knob">
+            <span>Logo Life</span>
+            <input id="overlayLife" type="range" min="0" max="100" value="24">
+            <output>24</output>
+          </label>
+        </section>
+
         <div class="control-grid">
           <label class="field">
             <span>Scene</span>
             <select id="sceneSelect">
-              <option value="nebula">Nebula</option>
+              <option value="nebula">Nebula Flow</option>
               <option value="tunnel">Tunnel</option>
-              <option value="radar">Radar</option>
-              <option value="crystal">Crystal</option>
+              <option value="radar">Liquid Ribbons</option>
+              <option value="crystal">Glass Bloom</option>
+              <option value="waveform">Waveform Field</option>
+              <option value="orbit">Orbit Grid</option>
             </select>
           </label>
 
@@ -66,7 +112,13 @@
               <option value="ember">Ember</option>
               <option value="glacier">Glacier</option>
               <option value="acid">Acid</option>
+              <option value="velvet">Velvet</option>
+              <option value="chrome">Chrome</option>
               <option value="mono">Mono</option>
+              <option value="solar">Solar</option>
+              <option value="lagoon">Lagoon</option>
+              <option value="candy">Candy</option>
+              <option value="noir">Noir</option>
             </select>
           </label>
         </div>
@@ -123,6 +175,7 @@
           <label><input id="mirror" type="checkbox" checked> Mirror</label>
           <label><input id="trails" type="checkbox" checked> Trails</label>
           <label><input id="beatFlash" type="checkbox" checked> Beat flash</label>
+          <label><input id="exportHud" type="checkbox" checked> Export HUD</label>
         </div>
       </aside>
     </main>
