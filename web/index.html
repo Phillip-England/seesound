@@ -25,7 +25,7 @@
       <aside class="panel" aria-label="Visualizer controls">
         <div class="brand">
           <h1>SeeSound</h1>
-          <p>Seeded live music-video visualizer</p>
+          <p>Audio-reactive math video instrument</p>
         </div>
 
         <label id="songDrop" class="file-drop" for="songInput">
@@ -50,6 +50,17 @@
         </label>
 
         <button id="remixButton" class="remix-button" type="button">Remix Look</button>
+
+        <section class="look-browser" aria-label="Look browser">
+          <div class="section-heading">
+            <div>
+              <span>Visual Systems</span>
+              <strong>Mathematical looks for tracks</strong>
+            </div>
+            <button id="randomLookButton" class="mini-button" type="button">Surprise</button>
+          </div>
+          <div id="lookDeck" class="look-deck" role="listbox" aria-label="Scene presets"></div>
+        </section>
 
         <section class="overlay-controls" aria-label="Image overlay controls">
           <label class="file-drop compact" for="overlayInput">
@@ -102,6 +113,23 @@
               <option value="crystal">Glass Bloom</option>
               <option value="waveform">Waveform Field</option>
               <option value="orbit">Orbit Grid</option>
+              <option value="horizon">Event Horizon</option>
+              <option value="rain">Prism Rain</option>
+              <option value="signal">Signal Bloom</option>
+              <option value="barscape">Bar Scape</option>
+              <option value="sequence">Sequence Grid</option>
+              <option value="polygon">Polygon Constellation</option>
+              <option value="triangles">Triangle Tessellation</option>
+              <option value="terrain">Spectral Terrain</option>
+              <option value="glyphs">Glyph Reactor</option>
+              <option value="mesh">Folded Mesh</option>
+              <option value="cymatics">Cymatic Plate</option>
+              <option value="lissajous">Lissajous Sculpture</option>
+              <option value="mandala">Phase Mandala</option>
+              <option value="hypercube">Hypercube Lattice</option>
+              <option value="julia">Julia Set</option>
+              <option value="voronoi">Voronoi Pulse</option>
+              <option value="spiral">Logarithmic Spirals</option>
             </select>
           </label>
 
@@ -119,6 +147,10 @@
               <option value="lagoon">Lagoon</option>
               <option value="candy">Candy</option>
               <option value="noir">Noir</option>
+              <option value="volt">Volt</option>
+              <option value="magma">Magma</option>
+              <option value="aurora">Aurora</option>
+              <option value="plasma">Plasma</option>
             </select>
           </label>
         </div>
@@ -163,6 +195,11 @@
             <span>Motion</span>
             <input id="motion" type="range" min="0" max="100" value="54">
             <output>54</output>
+          </label>
+          <label class="knob">
+            <span>Predict</span>
+            <input id="predict" type="range" min="0" max="100" value="34">
+            <output>34</output>
           </label>
           <label class="knob">
             <span>Grain</span>
